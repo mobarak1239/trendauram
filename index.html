@@ -6,11 +6,7 @@
   <title>SweetBite Bakery</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -99,7 +95,8 @@
       margin-top: 1rem;
     }
 
-    .contact-form input, .contact-form textarea, .contact-form button, .admin-panel input, .admin-panel button {
+    .contact-form input, .contact-form textarea, .contact-form button,
+    .admin-panel input, .admin-panel button {
       display: block;
       width: 80%;
       margin: 0.5rem auto;
@@ -137,13 +134,8 @@
     }
 
     @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-      }
-
-      .menu-items {
-        flex-direction: column;
-      }
+      nav ul { flex-direction: column; }
+      .menu-items { flex-direction: column; }
     }
   </style>
 </head>
@@ -156,6 +148,7 @@
         <li><a href="#menu">Menu</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#payment">Payment</a></li>
         <li><a href="#admin">Admin</a></li>
         <li><a href="#login">Login</a></li>
         <li><a href="#track">Track Order</a></li>
@@ -191,7 +184,25 @@
         <p>৳150</p>
       </div>
     </div>
-    <a href="https://paypal.com" class="pay-btn">Pay Now</a>
+  </section>
+
+  <!-- ✅ Send Money Section -->
+  <section id="payment" class="contact">
+    <h2>📲 Send Money & Confirm Payment</h2>
+    <p>➡️ নিচের যেকোনো নাম্বারে Send Money করুন:</p>
+    <ul style="list-style: none; padding: 0;">
+      <li><strong>Bkash:</strong> 01872854763</li>
+      <li><strong>Nagad:</strong> 01872854763</li>
+      <li><strong>Rocket:</strong> 01872854763</li>
+    </ul>
+    <br>
+    <form class="contact-form" onsubmit="submitPaymentForm(event)">
+      <input type="text" placeholder="Your Phone Number" required id="userPhone">
+      <input type="text" placeholder="Transaction ID (TrxID)" required id="trxId">
+      <textarea rows="3" placeholder="Any note or product name" id="note"></textarea>
+      <button type="submit">Confirm Payment</button>
+    </form>
+    <p id="paymentResult" style="margin-top: 10px;"></p>
   </section>
 
   <section id="about" class="about">
@@ -259,11 +270,27 @@
       const orderId = document.getElementById("orderId").value;
       const result = document.getElementById("trackResult");
       if(orderId === "SB123") {
-        result.innerText = "Status: Shipped 🙵";
+        result.innerText = "Status: Shipped 📦";
       } else if(orderId === "SB124") {
-        result.innerText = "Status: Delivered 🚞";
+        result.innerText = "Status: Delivered ✅";
       } else {
         result.innerText = "Invalid Order ID ❌";
+      }
+    }
+
+    function submitPaymentForm(event) {
+      event.preventDefault();
+      const phone = document.getElementById("userPhone").value;
+      const trxId = document.getElementById("trxId").value;
+      const note = document.getElementById("note").value;
+      const result = document.getElementById("paymentResult");
+
+      if(phone.length < 11 || trxId.length < 6) {
+        result.innerText = "❌ Please enter valid information.";
+        result.style.color = "red";
+      } else {
+        result.innerText = "✅ Payment submitted! We’ll verify soon.";
+        result.style.color = "green";
       }
     }
   </script>
