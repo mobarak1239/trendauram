@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SweetBite Bakery</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #ff7e5f;
+      padding: 1rem;
+      text-align: center;
+      color: white;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(to right, #ff9966, #ff5e62);
+      color: white;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: white;
+      color: #ff5e62;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .menu, .about, .contact, .admin-panel {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .menu-items .item {
+      background: #fff;
+      padding: 1rem;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 200px;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      padding: 1rem;
+      gap: 1rem;
+      scroll-behavior: smooth;
+    }
+
+    .slider img {
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    .contact-form, .admin-panel input, .admin-panel button {
+      margin-top: 1rem;
+    }
+
+    .contact-form input, .contact-form textarea, .contact-form button, .admin-panel input, .admin-panel button {
+      display: block;
+      width: 80%;
+      margin: 0.5rem auto;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .pay-btn {
+      margin-top: 1rem;
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .whatsapp img {
+      width: 50px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+
+      .menu-items {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SweetBite Bakery</h1>
+    <nav>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#admin">Admin</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#track">Track Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Freshly Baked Happiness</h2>
+    <p>Delicious cakes, cookies, and breads made daily with love.</p>
+    <a href="#menu" class="btn">View Menu</a>
+  </section>
+
+  <section class="slider">
+    <img src="https://source.unsplash.com/300x200/?cake" alt="Cake">
+    <img src="https://source.unsplash.com/300x200/?bread" alt="Bread">
+    <img src="https://source.unsplash.com/300x200/?cookies" alt="Cookies">
+  </section>
+
+  <section id="menu" class="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-items">
+      <div class="item">
+        <h3>Chocolate Cake</h3>
+        <p>৳350</p>
+      </div>
+      <div class="item">
+        <h3>Butter Cookies</h3>
+        <p>৳200</p>
+      </div>
+      <div class="item">
+        <h3>Garlic Bread</h3>
+        <p>৳150</p>
+      </div>
+    </div>
+    <a href="https://paypal.com" class="pay-btn">Pay Now</a>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>SweetBite Bakery is a family-owned shop serving fresh baked goods made with organic ingredients. We love making your day a little sweeter!</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Rajshahi, Bangladesh</p>
+    <p>📞 01872854763</p>
+    <p>📧 sweetbite@bakery.com</p>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section id="admin" class="admin-panel">
+    <h2>Admin Panel</h2>
+    <input type="text" placeholder="Product Name">
+    <input type="text" placeholder="Price">
+    <button>Add Product</button>
+    <button>Delete Product</button>
+  </section>
+
+  <section id="login" class="admin-panel">
+    <h2>User Login</h2>
+    <input type="text" placeholder="Username" id="username">
+    <input type="password" placeholder="Password" id="password">
+    <button onclick="login()">Login</button>
+  </section>
+
+  <section id="track" class="admin-panel">
+    <h2>Track Your Order</h2>
+    <input type="text" placeholder="Enter Order ID" id="orderId">
+    <button onclick="trackOrder()">Track</button>
+    <p id="trackResult"></p>
+  </section>
+
+  <div class="whatsapp">
+    <a href="https://wa.me/8801872854763" target="_blank">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat">
+    </a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 SweetBite Bakery. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if(user === "admin" && pass === "1234") {
+        alert("Login successful!");
+      } else {
+        alert("Invalid credentials!");
+      }
+    }
+
+    function trackOrder() {
+      const orderId = document.getElementById("orderId").value;
+      const result = document.getElementById("trackResult");
+      if(orderId === "SB123") {
+        result.innerText = "Status: Shipped 🙵";
+      } else if(orderId === "SB124") {
+        result.innerText = "Status: Delivered 🚞";
+      } else {
+        result.innerText = "Invalid Order ID ❌";
+      }
+    }
+  </script>
+
+</body>
+</html>
